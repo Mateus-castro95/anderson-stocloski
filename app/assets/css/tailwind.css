@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply overflow-x-hidden bg-white font-sans text-ink-500 antialiased;
+  }
+
+  section[id] {
+    scroll-margin-top: 80px;
+  }
+
+  /* A Playfair usa números "de texto" (com alturas diferentes) por padrão; força números alinhados */
+  .font-serif {
+    font-variant-numeric: lining-nums;
+  }
+
+  ::selection {
+    @apply bg-gold-500 text-white;
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-3 whitespace-nowrap px-7 py-4 text-xs font-semibold uppercase tracking-[0.18em] transition-all duration-300;
+  }
+
+  .btn-outline {
+    @apply btn border border-gold-500 text-white hover:bg-gold-500;
+  }
+
+  .btn-outline-dark {
+    @apply btn border border-ink-800 text-ink-800 hover:bg-ink-800 hover:text-white;
+  }
+
+  .btn-gold {
+    @apply btn bg-gold-500 text-white hover:bg-gold-600;
+  }
+
+  .btn-light {
+    @apply btn bg-white text-ink-800 hover:bg-ink-800 hover:text-white;
+  }
+
+  .kicker {
+    @apply inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-kicker text-gold-500;
+  }
+
+  .heading {
+    @apply font-serif text-[1.85rem] font-bold leading-tight text-ink-800 sm:text-4xl lg:text-[2.75rem];
+  }
+
+  .section-padding {
+    @apply py-20 sm:py-24 lg:py-32;
+  }
+
+  .nav-link {
+    @apply relative text-sm font-medium text-white/80 transition-colors hover:text-white;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute -bottom-1.5 left-0 h-px w-0 bg-gold-500 transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+}
